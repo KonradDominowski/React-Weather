@@ -67,7 +67,6 @@ export default function useWeather() {
 
 		}, [])
 
-	console.log(!location)
 	return {
 		geoData,
 		weather,

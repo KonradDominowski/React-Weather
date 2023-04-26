@@ -1,0 +1,45 @@
+nav {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav button {
+  cursor: pointer;
+  height: 4rem;
+  width: 4rem;
+  border: none;
+  border-radius: 50%;
+  background: none;
+}
+
+nav button:hover {
+  background-color: rgba(0, 69, 160, 0.1);
+}
+
+nav button:active {
+  background-color: rgba(0, 69, 160, 0.3);
+}
+
+.navIcon {
+  height: 3em;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  height: 1em;
+  padding-right: 0.2em;
+}
+
+.searchCity {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

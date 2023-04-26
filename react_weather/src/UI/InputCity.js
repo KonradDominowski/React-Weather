@@ -1,12 +1,15 @@
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 
-export default function InputCity({ onSubmit }) {
+
+export default function InputCity({ fetch_weather }) {
 	const city = useRef()
 
-	const handleSubmit = (e) => {
+	const handleSubmit = e => {
+		console.log('click')
 		e.preventDefault()
-		onSubmit(city.current.value)
+		fetch_weather({ city: city.current.value })
 	}
+
 	return (
 		<>
 			<form>

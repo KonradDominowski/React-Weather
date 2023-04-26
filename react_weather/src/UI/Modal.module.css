@@ -21,7 +21,7 @@
   box-shadow: 0 0 10px 0px rgba(0, 69, 160, 0.801);
 }
 
-button {
+.input button {
   cursor: pointer;
   border: none;
   padding: 0.5rem 1rem 0.5rem 1rem;
@@ -29,11 +29,11 @@ button {
   box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
 }
 
-button:hover {
+.input button:hover {
   background-color: rgba(0, 69, 160, 0.1);
 }
 
-button:active {
+.input button:active {
   background-color: rgba(0, 69, 160, 0.3);
 }
 
@@ -47,16 +47,16 @@ button:active {
   border-radius: 0.3rem 0 0 0.3rem;
 }
 
-form > button {
+.input form > button {
   border-radius: 0 0.3rem 0.3rem 0;
 }
 
-form {
+.input form {
   display: grid;
   grid-template-columns: 1fr 30%;
 }
 
-form > input {
+.input form > input {
   text-align: center;
   border: none;
   border: 1px gray;
@@ -64,7 +64,7 @@ form > input {
   box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
 }
 
-input::placeholder {
+.input input::placeholder {
   text-align: center;
 }
 

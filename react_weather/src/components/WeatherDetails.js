@@ -1,18 +1,17 @@
 import React, { useContext } from 'react'
+import { PrecipContext } from '../context/context'
 
 import classes from './WeatherDetails.module.css'
 
-import location_pin_on from './../media/location_pin_on.svg'
-import location_pin_off from './../media/location_pin_off.svg'
 import wind from './../media/wind.svg'
 import cloud from './../media/cloud.svg'
 import rain from './../media/rain.svg'
 
-import ConditionsContext, { PrecipContext, precipDefaultValue } from '../context/context'
+import Navbar from '../UI/Navbar'
 
-export default function Today({ weather, geoData, notLocation }) {
+export default function Today({ weather, geoData, notLocation, fetch_weather }) {
 	const ctx = useContext(PrecipContext)
-	console.log(notLocation)
+
 	let minMax
 	if (weather.tempmin && weather.tempmax) {
 		minMax = <p> &#8595; { weather.tempmin } °C &#8593; { weather.tempmax } °C</p>
@@ -23,13 +22,7 @@ export default function Today({ weather, geoData, notLocation }) {
 
 	return (
 		<div className={ classes.todayContainer }>
-			<h1>
-				<img
-					className={ classes.icon }
-					src={ (notLocation) ? location_pin_on : location_pin_off } />
-				{ `${geoData?.city}, ${geoData?.country}` }
-
-			</h1>
+			<Navbar notLocation={ notLocation } geoData={ geoData } fetch_weather={ fetch_weather } />
 			<div className={ classes.weatherInfo }>
 				<div>
 					<h1>{ weather.temp } °C <span>{ weather.feelslike } °C</span></h1>

@@ -34,11 +34,11 @@ function App() {
   return <>
     <PrecipContext.Provider value={ precipDefaultValue }>
       <ConditionsContext.Provider value={ conditionsContextValue }>
-        { (isLoading) && <Modal /> }
+        { (isLoading) && <Modal fetch_weather={ fetch_weather } /> }
         { !weather && <Modal location={ location } setLocation={ setLocation } fetch_weather={ fetch_weather } /> }
         <Mainlayout>
           <DaysList days={ dummy_weather.days } />
-          { weather && <Today weather={ weather.days.at(1) } geoData={ geoData } notLocation={ notLocation } /> }
+          { weather && <Today weather={ weather.days.at(1) } geoData={ geoData } notLocation={ notLocation } fetch_weather={ fetch_weather } /> }
         </Mainlayout>
       </ConditionsContext.Provider>
     </PrecipContext.Provider>

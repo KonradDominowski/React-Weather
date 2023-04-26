@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './Modal.module.css'
 import Spinner from './Spinner'
 import InputCity from './InputCity'
 
-export default function Modal({ location, setLocation, fetch_weather }) {
-	const city = useRef()
+export default function Modal({ setLocation, fetch_weather }) {
 	const [prompt, setPrompt] = useState(null)
 	const [message, setMessage] = useState(null)
 	const [showPrompt, setShowPrompt] = useState(false)
@@ -17,11 +16,6 @@ export default function Modal({ location, setLocation, fetch_weather }) {
 		})
 	}
 
-	const handleSubmit = city => {
-		console.log(city)
-		fetch_weather({ city: city })
-	}
-
 	let fallback = <>
 		<div className={ `${classes.prompt}` }>
 			<p>
@@ -29,11 +23,7 @@ export default function Modal({ location, setLocation, fetch_weather }) {
 			</p>
 			<div className={ classes.input }>
 				<button onClick={ handleClick }>Try again</button>
-				<InputCity onSubmit={ handleSubmit } />
-				{/* <form>
-					<input ref={ city } type='text' placeholder='or enter a city...'></input>
-					<button onClick={ handleSubmit } type='submit'>Search</button>
-				</form> */}
+				<InputCity fetch_weather={ fetch_weather } />
 			</div>
 			{ message }
 		</div>
