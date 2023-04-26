@@ -1,0 +1,5 @@
+.days {
+  flex-basis: 30%;
+  row-gap: 0.5rem;
+  overflow: auto;
+}
