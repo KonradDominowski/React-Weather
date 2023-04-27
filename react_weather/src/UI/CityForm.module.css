@@ -1,13 +1,10 @@
 .inputCity {
-  transition: 1s;
+  display: flex;
+  max-height: 100%;
   padding: 1rem;
   background-color: white;
   border-radius: 0.3rem;
   box-shadow: 0 0 10px -5px black;
-}
-
-.hidden {
-  display: none;
 }
 
 .inputCity * {

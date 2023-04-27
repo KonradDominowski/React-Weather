@@ -56,7 +56,7 @@
   grid-template-columns: 1fr 30%;
 }
 
-.input form > input {
+.input form input {
   text-align: center;
   border: none;
   border: 1px gray;

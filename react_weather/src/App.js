@@ -9,13 +9,11 @@ import Today from "./components/WeatherDetails";
 import Mainlayout from "./UI/MainLayout";
 import DaysList from "./components/DaysList";
 
-
-
-
 function App() {
   const { notLocation, geoData, weather, isLoading, fetch_weather } = useWeather()
   const [location, setLocation] = useState(null)
 
+  // Get the location from the browser on first render.
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(position => {
       console.log(position)
@@ -23,10 +21,9 @@ function App() {
     })
   }, [])
 
+  // If the location is enabled, fetch weather for this location.
   useEffect(() => {
-    console.log('efekt run')
     if (location) {
-      console.log('run fetch')
       fetch_weather({ location: location })
     }
   }, [fetch_weather, location])
@@ -34,11 +31,17 @@ function App() {
   return <>
     <PrecipContext.Provider value={ precipDefaultValue }>
       <ConditionsContext.Provider value={ conditionsContextValue }>
-        { (isLoading) && <Modal fetch_weather={ fetch_weather } /> }
-        { !weather && <Modal location={ location } setLocation={ setLocation } fetch_weather={ fetch_weather } /> }
+        {/* If the location is not fetched, or weather fetch failed, display the modal */ }
+        { !weather && <Modal
+          setLocation={ setLocation }
+          fetch_weather={ fetch_weather }
+          isLoading={ isLoading }
+        /> }
+
+        {/* If weacher is fetched successfully, display the page */ }
         <Mainlayout>
           <DaysList days={ dummy_weather.days } />
-          { weather && <Today weather={ weather.days.at(1) } geoData={ geoData } notLocation={ notLocation } fetch_weather={ fetch_weather } /> }
+          { weather && <Today weather={ weather.currentConditions } geoData={ geoData } notLocation={ notLocation } fetch_weather={ fetch_weather } /> }
         </Mainlayout>
       </ConditionsContext.Provider>
     </PrecipContext.Provider>

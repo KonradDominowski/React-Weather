@@ -17,7 +17,7 @@ export default function Navbar({ notLocation, geoData, fetch_weather }) {
 	return (
 		<>
 			<nav>
-				<button>
+				<button className={ classes.navButton }>
 					<img className={ classes.navIcon } src={ search } />
 				</button>
 				<p>
@@ -27,13 +27,14 @@ export default function Navbar({ notLocation, geoData, fetch_weather }) {
 					{ `${geoData?.city}, ${geoData?.country}` }
 
 				</p>
-				<button onClick={ handleToggleCityForm }>
+				<button className={ classes.navButton } onClick={ handleToggleCityForm }>
 					<img className={ classes.navIcon } src={ search } />
 				</button>
+				<div className={ classes.searchCity }>
+					{ showCityForm && <CityForm showCityForm={ showCityForm } fetch_weather={ fetch_weather } setShowCityForm={ setShowCityForm } /> }
+				</div>
 			</nav>
-			<div className={ classes.searchCity }>
-				{ showCityForm && <CityForm showCityForm={ showCityForm } fetch_weather={ fetch_weather } setShowCityForm={ setShowCityForm } /> }
-			</div>
+
 		</>
 	)
 }

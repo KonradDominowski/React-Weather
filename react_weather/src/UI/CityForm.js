@@ -19,7 +19,7 @@ export default function CityForm({ fetch_weather, setShowCityForm }) {
 	return (
 		<>
 			<form className={ classes.inputCity }>
-				<input autoFocus ref={ city } type='text' placeholder='or enter a city...'></input>
+				<input autoFocus ref={ city } type='text' placeholder='Enter a city'></input>
 				<button onClick={ handleSubmit } type='submit'>Search</button>
 				<button onClick={ handleCloseForm } className={ classes.lastButton }>Close</button>
 			</form>

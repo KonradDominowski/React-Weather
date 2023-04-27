@@ -9,9 +9,13 @@ export default function useWeather() {
 	const [geoData, setGeoData] = useState(null)
 
 	const fetch_weather = useCallback(
-		async ({ location = null, city = null }) => {
+		async ({ location = null, city = null, country = null }) => {
 			let weatherUrl
 			let geoDataUrl
+
+			console.log('location:', location)
+			console.log('city:', city)
+			console.log('country:', country)
 
 			if (location) {
 				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/
@@ -25,9 +29,9 @@ export default function useWeather() {
 			}
 
 			if (city) {
-				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
+				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
 
-				geoDataUrl = `https://api.geoapify.com/v1/geocode/search?city=${city}&country=Poland&format=json&apiKey=${GEOCODING_API_KEY}
+				geoDataUrl = `https://api.geoapify.com/v1/geocode/search?city=${city}&country=${country}&format=json&apiKey=${GEOCODING_API_KEY}
 				`
 			}
 
@@ -43,7 +47,7 @@ export default function useWeather() {
 				setWeather(data)
 
 			} catch (error) {
-				console.log(error)
+				setErr(error)
 			}
 
 			try {

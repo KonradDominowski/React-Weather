@@ -1,37 +1,41 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo, useCallback } from 'react'
 import classes from './Modal.module.css'
 import Spinner from './Spinner'
 import InputCity from './InputCity'
 
-export default function Modal({ setLocation, fetch_weather }) {
+export default function Modal({ setLocation, fetch_weather, isLoading }) {
 	const [prompt, setPrompt] = useState(null)
 	const [message, setMessage] = useState(null)
 	const [showPrompt, setShowPrompt] = useState(false)
 
-	const handleClick = () => {
+	// Click this button to try and get location again, in case the user turned it on.
+	const handleClick = useCallback(() => {
 		navigator.geolocation.getCurrentPosition(position => {
 			setLocation(position)
 		}, () => {
+			// If the user didn't enable location, let them know
 			setMessage(<p className={ classes.fallback }>Please enable location access.</p>)
 		})
-	}
+	}, [setLocation])
 
-	let fallback = <>
-		<div className={ `${classes.prompt}` }>
-			<p>
-				Make sure to enable location in the browser
-			</p>
-			<div className={ classes.input }>
-				<button onClick={ handleClick }>Try again</button>
-				<InputCity fetch_weather={ fetch_weather } />
+	const fallback = useMemo(() => {
+		return <>
+			<div className={ `${classes.prompt}` }>
+				<p>
+					Make sure to enable location in the browser
+				</p>
+				<div className={ classes.input }>
+					<button onClick={ handleClick }>Try again</button>
+					<InputCity fetch_weather={ fetch_weather } />
+				</div>
+				{ message }
 			</div>
-			{ message }
-		</div>
-	</>
+		</>
+	}, [message, fetch_weather, handleClick])
 
 	useEffect(() => {
 		setPrompt(fallback)
-	}, [message])
+	}, [message, fallback])
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -41,7 +45,7 @@ export default function Modal({ setLocation, fetch_weather }) {
 
 	return (
 		<div className={ classes.backdrop }>
-			<Spinner />
+			{ isLoading && <Spinner /> }
 			{ showPrompt && prompt }
 		</div>
 	)
