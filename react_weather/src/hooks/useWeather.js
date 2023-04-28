@@ -4,14 +4,19 @@ export default function useWeather() {
 	const WEATHER_API_KEY = `ZAUSD52QXZXGG7VTYENTNT9D6`
 	const GEOCODING_API_KEY = `3540478de5844d23ac0ae2a428369495`
 	const [weather, setWeather] = useState(null)
+	const [mainWeather, setMainWeather] = useState()
 	const [isLoading, setIsLoading] = useState(false)
 	const [err, setErr] = useState(null)
 	const [geoData, setGeoData] = useState(null)
 
 	const fetch_weather = useCallback(
-		async ({ location = null, city = null }) => {
+		async ({ location = null, city = null, country = null }) => {
 			let weatherUrl
 			let geoDataUrl
+
+			console.log('location:', location)
+			console.log('city:', city)
+			console.log('country:', country)
 
 			if (location) {
 				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/
@@ -25,9 +30,9 @@ export default function useWeather() {
 			}
 
 			if (city) {
-				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
+				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
 
-				geoDataUrl = `https://api.geoapify.com/v1/geocode/search?city=${city}&country=Poland&format=json&apiKey=${GEOCODING_API_KEY}
+				geoDataUrl = `https://api.geoapify.com/v1/geocode/search?city=${city}&country=${country}&format=json&apiKey=${GEOCODING_API_KEY}
 				`
 			}
 
@@ -41,9 +46,10 @@ export default function useWeather() {
 
 				const data = await res.json()
 				setWeather(data)
+				setMainWeather(data.currentConditions)
 
 			} catch (error) {
-				console.log(error)
+				setErr(error)
 			}
 
 			try {
@@ -72,6 +78,7 @@ export default function useWeather() {
 		weather,
 		isLoading,
 		fetch_weather,
-		notLocation: !location
+		mainWeather,
+		setMainWeather
 	}
 }

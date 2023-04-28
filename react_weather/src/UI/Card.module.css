@@ -1,2 +1,75 @@
 .card {
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid black;
+  transition: 0.25s;
+}
+
+.card:hover {
+  scale: 1.01;
+  box-shadow: 0 0 3px 0px;
+}
+
+.card:active {
+  scale: 1.05;
+  border: 2px solid black;
+  box-shadow: 0 0 3px 0px;
+}
+
+.active {
+  pointer-events: none;
+  scale: 1.05;
+  border: 2px solid black;
+  box-shadow: 0 0 3px 0px;
+}
+
+.card > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.description {
+  flex-direction: column;
+}
+
+.date {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.date > div {
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+
+.weekend {
+  background: #ff416c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff416c,
+    #ff4b2b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff416c,
+    #ff4b2b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.date > div > span {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.date p {
+  text-align: center;
+  margin: 0.5rem;
 }

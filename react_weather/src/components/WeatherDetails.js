@@ -8,9 +8,11 @@ import cloud from './../media/cloud.svg'
 import rain from './../media/rain.svg'
 
 import Navbar from '../UI/Navbar'
+import { mainWeatherContext } from '../context/mainWeatherContext'
 
-export default function Today({ weather, geoData, notLocation, fetch_weather }) {
+export default function Today({ geoData, fetch_weather }) {
 	const ctx = useContext(PrecipContext)
+	const weather = useContext(mainWeatherContext).currentWeather
 
 	let minMax
 	if (weather.tempmin && weather.tempmax) {
@@ -22,7 +24,7 @@ export default function Today({ weather, geoData, notLocation, fetch_weather }) 
 
 	return (
 		<div className={ classes.todayContainer }>
-			<Navbar notLocation={ notLocation } geoData={ geoData } fetch_weather={ fetch_weather } />
+			<Navbar geoData={ geoData } fetch_weather={ fetch_weather } />
 			<div className={ classes.weatherInfo }>
 				<div>
 					<h1>{ weather.temp } °C <span>{ weather.feelslike } °C</span></h1>
