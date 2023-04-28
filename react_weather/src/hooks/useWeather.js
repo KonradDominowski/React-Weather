@@ -41,36 +41,32 @@ export default function useWeather() {
 
 
 			try {
-				const res = await fetch(weatherUrl)
-				if (!res.ok) throw new Error(`Couldn't fetch weather`)
+				const [weather, geo] = await Promise.all([
+					fetch(weatherUrl),
+					fetch(geoDataUrl)
+				])
 
-				const data = await res.json()
-				setWeather(data)
-				setMainWeather(data.currentConditions)
+				if (!weather.ok) throw new Error(`Couldn't fetch weather`)
+				if (!geo.ok) throw new Error(`Couldn't reverse geocode`)
+
+				const [weatherData, geoData] = await Promise.all([
+					weather.json(),
+					geo.json()
+				])
+
+				setWeather(weatherData)
+				setMainWeather(weatherData.currentConditions)
+
+				if (location) {
+					setGeoData(geoData.features[0].properties)
+				} else if (city) {
+					setGeoData(geoData.results[0])
+				}
 
 			} catch (error) {
 				setErr(error)
 			}
-
-			try {
-				const res = await fetch(geoDataUrl)
-
-				if (!res.ok) throw new Error(`Couldn't reverse geocode`)
-
-				const data = await res.json()
-
-				if (location) {
-					setGeoData(data.features[0].properties)
-				} else if (city) {
-					setGeoData(data.results[0])
-				}
-
-			} catch (error) {
-				console.log(error)
-			}
-
 			setIsLoading(false)
-
 		}, [])
 
 	return {
