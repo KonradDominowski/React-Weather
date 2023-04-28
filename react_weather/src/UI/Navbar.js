@@ -7,7 +7,7 @@ import search from './../media/search.svg'
 import classes from './Navbar.module.css'
 import CityForm from './CityForm'
 
-export default function Navbar({ notLocation, geoData, fetch_weather }) {
+export default function Navbar({ geoData, fetch_weather }) {
 	const [showCityForm, setShowCityForm] = useState(false)
 
 	const handleToggleCityForm = () => {
@@ -23,7 +23,7 @@ export default function Navbar({ notLocation, geoData, fetch_weather }) {
 				<p>
 					<img
 						className={ classes.icon }
-						src={ (notLocation) ? location_pin_off : location_pin_on } />
+						src={ location_pin_on } />
 					{ `${geoData?.city}, ${geoData?.country}` }
 
 				</p>

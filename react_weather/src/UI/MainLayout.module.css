@@ -1,5 +1,4 @@
 .layout {
   max-width: 100vw;
   display: flex;
-  /* grid-template-columns: 25% 75%; */
 }

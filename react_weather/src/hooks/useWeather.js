@@ -4,6 +4,7 @@ export default function useWeather() {
 	const WEATHER_API_KEY = `ZAUSD52QXZXGG7VTYENTNT9D6`
 	const GEOCODING_API_KEY = `3540478de5844d23ac0ae2a428369495`
 	const [weather, setWeather] = useState(null)
+	const [mainWeather, setMainWeather] = useState()
 	const [isLoading, setIsLoading] = useState(false)
 	const [err, setErr] = useState(null)
 	const [geoData, setGeoData] = useState(null)
@@ -45,6 +46,7 @@ export default function useWeather() {
 
 				const data = await res.json()
 				setWeather(data)
+				setMainWeather(data.currentConditions)
 
 			} catch (error) {
 				setErr(error)
@@ -76,6 +78,7 @@ export default function useWeather() {
 		weather,
 		isLoading,
 		fetch_weather,
-		notLocation: !location
+		mainWeather,
+		setMainWeather
 	}
 }
