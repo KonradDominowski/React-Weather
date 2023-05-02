@@ -1,0 +1,38 @@
+.cityForm {
+  display: grid;
+}
+
+.cityForm input {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 1px gray;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.952);
+  box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
+}
+
+.cityForm > input:focus {
+  outline: none;
+}
+.cityForm > input::placeholder {
+  text-align: center;
+}
+
+.cityForm > button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 0.5rem;
+  border: 1px solid gray;
+  background: rgb(255, 255, 255);
+}
+
+.cityForm > button > img {
+  margin-right: 0.5rem;
+}
+
+.cityForm > button:hover {
+  background-color: rgb(255, 208, 208);
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CircleFlag } from 'react-circle-flags';
 import useCity from '../hooks/useCity';
+import classes from './InputCity.module.css'
 
 
 export default function InputCity({ fetch_weather }) {
@@ -38,10 +39,13 @@ export default function InputCity({ fetch_weather }) {
 		}
 
 		setCitiesList(fetchedCities.map(city =>
-			<button onClick={
-				fetch_weather.bind(null,
-					{ city: city.name, country: city.country }
-				) }>
+			<button
+				key={ Math.random() }
+				type='button'
+				onClick={
+					fetch_weather.bind(null,
+						{ city: city.name, country: city.country }
+					) }>
 				<CircleFlag countryCode={ city.country_code.toLowerCase() } height={ 24 } />
 				{ city.country_code }, { city.name }
 			</button>
@@ -52,11 +56,11 @@ export default function InputCity({ fetch_weather }) {
 
 	return (
 		<>
-			<form>
-				<input onChange={ e => setEnteredCity(e.target.value) } value={ enteredCity } type='text' placeholder='or enter a city...'></input>
-				<button onClick={ handleSubmit } type='submit'>Search</button>
+			<form className={ classes.cityForm }>
+				<input onChange={ e => setEnteredCity(e.target.value) } value={ enteredCity } type='text' placeholder='enter a city...'></input>
+				{ citiesList }
 			</form>
-			{ citiesList }
+
 		</>
 	)
 }

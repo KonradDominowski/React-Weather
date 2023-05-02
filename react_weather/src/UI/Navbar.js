@@ -6,8 +6,9 @@ import search from './../media/search.svg'
 
 import classes from './Navbar.module.css'
 import CityForm from './CityForm'
+import Modal from './Modal'
 
-export default function Navbar({ geoData, fetch_weather }) {
+export default function Navbar({ geoData }) {
 	const [showCityForm, setShowCityForm] = useState(false)
 
 	const handleToggleCityForm = () => {
@@ -30,11 +31,14 @@ export default function Navbar({ geoData, fetch_weather }) {
 				<button className={ classes.navButton } onClick={ handleToggleCityForm }>
 					<img className={ classes.navIcon } src={ search } />
 				</button>
-				<div className={ classes.searchCity }>
-					{ showCityForm && <CityForm showCityForm={ showCityForm } fetch_weather={ fetch_weather } setShowCityForm={ setShowCityForm } /> }
+				<div className={ classes.searchCity } onClick={ e => {
+					if (e.target.classList.value.includes('backdrop')) {
+						setShowCityForm(state => !state)
+					}
+				} }>
+					{ showCityForm && <Modal show={ true } /> }
 				</div>
 			</nav>
-
 		</>
 	)
 }

@@ -2,7 +2,11 @@ import React from "react";
 
 export const mainWeatherContext = React.createContext({
 	currentWeather: '',
-	setCurrentWeather: () => { }
+	setCurrentWeather: () => { },
+	geoData: {},
+	weather: {},
+	isLoading: true,
+	fetch_weather: () => { },
 })
 
 export const setCurrentWeather = (weather, e) => {
