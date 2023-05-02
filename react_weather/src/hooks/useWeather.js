@@ -4,7 +4,7 @@ export default function useWeather() {
 	const WEATHER_API_KEY = `ZAUSD52QXZXGG7VTYENTNT9D6`
 	const GEOCODING_API_KEY = `3540478de5844d23ac0ae2a428369495`
 	const [weather, setWeather] = useState(null)
-	const [mainWeather, setMainWeather] = useState()
+	const [currentWeather, setCurrentWeather] = useState()
 	const [isLoading, setIsLoading] = useState(false)
 	const [err, setErr] = useState(null)
 	const [geoData, setGeoData] = useState(null)
@@ -32,8 +32,7 @@ export default function useWeather() {
 			if (city) {
 				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
 
-				geoDataUrl = `https://api.geoapify.com/v1/geocode/search?city=${city}&country=${country}&format=json&apiKey=${GEOCODING_API_KEY}
-				`
+				geoDataUrl = `https://api.geoapify.com/v1/geocode/search?city=${city}&country=${country}&format=json&apiKey=${GEOCODING_API_KEY}`
 			}
 
 			setIsLoading(true)
@@ -55,7 +54,7 @@ export default function useWeather() {
 				])
 
 				setWeather(weatherData)
-				setMainWeather(weatherData.currentConditions)
+				setCurrentWeather(weatherData.currentConditions)
 
 				if (location) {
 					setGeoData(geoData.features[0].properties)
@@ -74,7 +73,9 @@ export default function useWeather() {
 		weather,
 		isLoading,
 		fetch_weather,
-		mainWeather,
-		setMainWeather
+		currentWeather,
+		setCurrentWeather,
+		location,
+		err
 	}
 }

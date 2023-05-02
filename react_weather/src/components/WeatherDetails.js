@@ -10,9 +10,9 @@ import rain from './../media/rain.svg'
 import Navbar from '../UI/Navbar'
 import { mainWeatherContext } from '../context/mainWeatherContext'
 
-export default function Today({ geoData, fetch_weather }) {
+export default function Today() {
+	const { geoData, fetch_weather, currentWeather: weather } = useContext(mainWeatherContext)
 	const ctx = useContext(PrecipContext)
-	const weather = useContext(mainWeatherContext).currentWeather
 
 	let minMax
 	if (weather.tempmin && weather.tempmax) {

@@ -13,6 +13,7 @@
 }
 
 .prompt {
+  text-align: center;
   width: max-content;
   margin: 3rem;
   padding: 1.5rem;
@@ -39,33 +40,10 @@
 
 .input {
   padding: 1rem 0 1rem 0;
-  display: grid;
-  grid-template-columns: 25% 1fr;
 }
 
 .input > button {
-  border-radius: 0.3rem 0 0 0.3rem;
-}
-
-.input form > button {
-  border-radius: 0 0.3rem 0.3rem 0;
-}
-
-.input form {
-  display: grid;
-  grid-template-columns: 1fr 30%;
-}
-
-.input form input {
-  text-align: center;
-  border: none;
-  border: 1px gray;
-  background-color: rgba(255, 255, 255, 0.952);
-  box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
-}
-
-.input input::placeholder {
-  text-align: center;
+  border-radius: 0.3rem;
 }
 
 .fallback {

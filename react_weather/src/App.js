@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import useWeather from "./hooks/useWeather";
 import ConditionsContext, { conditionsContextValue, PrecipContext, precipDefaultValue } from "./context/context";
-import { mainWeatherContext, setCurrentWeather } from './context/mainWeatherContext'
+import { mainWeatherContext } from './context/mainWeatherContext'
 
 import Modal from "./UI/Modal";
 import Today from "./components/WeatherDetails";
@@ -10,7 +10,7 @@ import Mainlayout from "./UI/MainLayout";
 import DaysList from "./components/DaysList";
 
 function App() {
-  const { geoData, weather, mainWeather, setMainWeather, isLoading, fetch_weather } = useWeather()
+  const { geoData, weather, currentWeather, setCurrentWeather, isLoading, fetch_weather } = useWeather()
   const [location, setLocation] = useState(null)
 
   // Get the location from the browser on first render.
@@ -28,20 +28,24 @@ function App() {
   }, [fetch_weather, location])
 
   return <>
-    <mainWeatherContext.Provider value={ { currentWeather: mainWeather, setCurrentWeather: setMainWeather } } >
+    <mainWeatherContext.Provider value={ {
+      currentWeather: currentWeather,
+      setCurrentWeather: setCurrentWeather,
+      setLocation: setLocation,
+      fetch_weather: fetch_weather,
+      isLoading: isLoading,
+      weather: weather,
+      geoData: geoData,
+    } } >
       <PrecipContext.Provider value={ precipDefaultValue }>
         <ConditionsContext.Provider value={ conditionsContextValue }>
           {/* If the location is not fetched, or weather fetch failed, display the modal */ }
-          { !weather && <Modal
-            setLocation={ setLocation }
-            fetch_weather={ fetch_weather }
-            isLoading={ isLoading }
-          /> }
+          { !weather && <Modal /> }
 
-          {/* If weacher is fetched successfully, display the page */ }
+          {/* If weather is fetched successfully, display the page */ }
           <Mainlayout>
-            { weather && <DaysList days={ weather.days } /> }
-            { weather && <Today geoData={ geoData } fetch_weather={ fetch_weather } /> }
+            { weather && <DaysList /> }
+            { weather && <Today /> }
           </Mainlayout>
         </ConditionsContext.Provider>
       </PrecipContext.Provider>
