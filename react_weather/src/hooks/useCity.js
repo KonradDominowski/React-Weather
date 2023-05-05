@@ -1,14 +1,14 @@
 import { useState, useCallback } from "react";
 
 export default function useCity() {
-	const [isLoading, setIsLoading] = useState(false)
+	const [cityIsLoading, setCityIsLoading] = useState(false)
 	const [fetchedCities, setFetchedCities] = useState()
 	const [citiesList, setCitiesList] = useState([])
 	const [err, setErr] = useState(null)
 
 	const fetchCities = useCallback(
 		async (city) => {
-			setIsLoading(true)
+			setCityIsLoading(true)
 			setErr(null)
 
 			try {
@@ -22,13 +22,13 @@ export default function useCity() {
 				setErr(error)
 			}
 
-			setIsLoading(false)
+			setCityIsLoading(false)
 
 		}, [])
 
 	return {
 		fetchedCities,
-		isLoading,
+		cityIsLoading,
 		fetchCities,
 		citiesList,
 		setCitiesList,

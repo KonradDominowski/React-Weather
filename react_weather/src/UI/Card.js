@@ -6,9 +6,16 @@ export default function Card({ day }) {
 	const { currentWeather, setCurrentWeather } = useContext(mainWeatherContext)
 
 	const date = new Date(day.datetime)
-	const weekendClasses = (date.getDay() === 6 || date.getDay() == 0) ? classes.weekend : classes.weekday
 
-	const cardClasses = (currentWeather === day) ? `${classes.card} ${classes.active}` : `${classes.card}`
+	// Different styling for days during weekend
+	const weekendClasses = (date.getDay() === 6 || date.getDay() === 0) ? classes.weekend : classes.weekday
+
+	// Different styling for currrently active weather
+	// day.icon defines the weather and appropriate styling
+	const cardClasses =
+		(currentWeather === day)
+			? `${classes.card} ${classes[day.icon]} ${classes.active}`
+			: `${classes.card} ${classes[day.icon]}`
 
 	return (
 		<div className={ cardClasses } onClick={ setCurrentWeather.bind(null, day) }>
@@ -20,10 +27,11 @@ export default function Card({ day }) {
 				</div>
 			</div>
 			<div className={ classes.description }>
-				<h3>{ day.conditions }</h3>
-				<p>{ day.preciptype }</p></div>
-			<div>
-				<h2>{ day.temp } °C</h2>
+				<p className={ classes.conditions }>{ day.conditions }</p>
+				<p>{ day.preciptype }</p>
+			</div>
+			<div className={ classes.temp }>
+				<p>{ day.temp } °C</p>
 			</div>
 		</div>
 	)

@@ -1,9 +1,4 @@
-1. Znaleźć wszystkie możliwe skrótowe nazwy pogody
-2. Znaleźć odpowiednie filmiki dla każdego rodzaju pogody
 3. Zaprojektować fajny interfejs
-4. Dodać feedback użytkownikowi czy jest czy nie ma jego lokalizacji
-5. Dać możliwość wyboru lokalizacji
-6. Załatwić sprawę polskich znaków przy wpisywaniu nazwy miasta
-7. Pobrać skądś listę miast do wyświetlenia przy wyborze
+8. Przy zmianie dnia, cała lista się renderuje, lepiej ogarnąć coś żeby nie musiała się cała zmieniać, tylko odpowiednie elementy
 
 Zakończyłem na tym że próbowałem usunąć listę miast z wyszukiwarki gdy usuwasz wprowadzone literki

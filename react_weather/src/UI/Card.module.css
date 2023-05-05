@@ -8,23 +8,24 @@
   padding: 0.5rem;
   border-radius: 1.5rem;
   box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.301);
-  transition: 0.15s;
+  transition: 100ms ease-in;
 }
 
 .card:hover {
   scale: 1.05;
   box-shadow: 0 0 3px 0px;
+  border: 1px solid black;
 }
 
 .card:active {
   scale: 1.05;
-  border: 2px solid black;
+  border: 1px solid black;
   box-shadow: 0 0 3px 0px;
 }
 
 .active {
   scale: 1.05;
-  border: 2px solid black;
+  border: 1px solid black;
   box-shadow: 0 0 3px 0px;
   pointer-events: none;
 }
@@ -36,6 +37,7 @@
 }
 
 .description {
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +45,7 @@
 }
 
 .date {
+  font-weight: 400;
   padding: 0 1rem 0.5rem 1rem;
   justify-content: center;
   display: flex;
@@ -57,7 +60,12 @@
 
 .date > div > span {
   font-size: 1.6rem;
-  font-weight: bold;
+  font-weight: 600;
+}
+
+.temp {
+  font-size: 1.8rem;
+  font-weight: 400;
 }
 
 .weekend {
@@ -81,4 +89,41 @@
 .date p {
   text-align: center;
   margin: 0.5rem;
+}
+
+.snow {
+}
+
+.rain {
+  /* background: linear-gradient(45deg, hwb(210 1% 15%), hwb(230 0% 15%)); */
+  background-image: linear-gradient(
+    45deg,
+    hwb(180 85% 30%) 0%,
+    hwb(197 39% 40%) 35%,
+    hwb(200 0% 60%) 90%
+  );
+}
+
+.fog {
+}
+
+.wind {
+}
+
+.cloudy {
+  background-image: linear-gradient(
+    45deg,
+    #d8eeee 0%,
+    #64adc9 35%,
+    #005986 90%,
+    #005986
+  );
+}
+
+.partly-cloudy-day {
+  background: linear-gradient(45deg, hwb(197 76% 2%), hwb(210 79% 40%));
+}
+
+.clear-day {
+  background: linear-gradient(45deg, hwb(180 61% 15%), hwb(197 40% 0%));
 }

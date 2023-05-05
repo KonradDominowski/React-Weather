@@ -5,9 +5,11 @@ export default function useWeather() {
 	const GEOCODING_API_KEY = `3540478de5844d23ac0ae2a428369495`
 	const [weather, setWeather] = useState(null)
 	const [currentWeather, setCurrentWeather] = useState()
+	const [geoData, setGeoData] = useState(null)
 	const [isLoading, setIsLoading] = useState(false)
 	const [err, setErr] = useState(null)
-	const [geoData, setGeoData] = useState(null)
+	const [showModal, setShowModal] = useState(false)
+	const [fetchedFromCurrentLocation, setFetchedFromCurrentLocation] = useState()
 
 	const fetch_weather = useCallback(
 		async ({ location = null, city = null, country = null }) => {
@@ -22,7 +24,7 @@ export default function useWeather() {
 				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/
 				${location.coords.latitude},
 				${location.coords.longitude}
-				?iconSet=icons2&unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
+				?unitGroup=metric&key=${WEATHER_API_KEY}&contentType=json`
 
 				geoDataUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${location.coords.latitude}
 				&lon=${location.coords.longitude}
@@ -55,11 +57,14 @@ export default function useWeather() {
 
 				setWeather(weatherData)
 				setCurrentWeather(weatherData.currentConditions)
+				setShowModal(false)
 
 				if (location) {
 					setGeoData(geoData.features[0].properties)
+					setFetchedFromCurrentLocation(true)
 				} else if (city) {
 					setGeoData(geoData.results[0])
+					setFetchedFromCurrentLocation(false)
 				}
 
 			} catch (error) {
@@ -75,7 +80,10 @@ export default function useWeather() {
 		fetch_weather,
 		currentWeather,
 		setCurrentWeather,
+		showModal,
+		setShowModal,
 		location,
-		err
+		err,
+		fetchedFromCurrentLocation
 	}
 }

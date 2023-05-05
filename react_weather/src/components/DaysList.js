@@ -9,7 +9,7 @@ import { mainWeatherContext } from '../context/mainWeatherContext'
 export default function DaysList() {
 	const days = useContext(mainWeatherContext).weather.days
 
-	const daysList = days.map(day => <Card key={ Math.random() } day={ day } />)
+	const daysList = days.map((day, i) => <Card key={ i } day={ day } />)
 
 	return (
 		<div className={ classes.days }>

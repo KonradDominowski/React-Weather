@@ -7,9 +7,7 @@ export const mainWeatherContext = React.createContext({
 	weather: {},
 	isLoading: true,
 	fetch_weather: () => { },
+	fetchedFromCurrentLocation: true,
+	showModal: true,
+	setShowModal: () => { }
 })
-
-export const setCurrentWeather = (weather, e) => {
-	console.log(weather)
-	console.log(e)
-}
