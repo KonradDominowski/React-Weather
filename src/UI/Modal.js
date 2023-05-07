@@ -11,6 +11,7 @@ export default function Modal({ showImmediately }) {
 	const [message, setMessage] = useState(null)
 	const [showPrompt, setShowPrompt] = useState(showImmediately)
 
+
 	// Click this button to try and get location again, in case the user turned it on.
 	const handleClick = useCallback(() => {
 		getLocation()
@@ -57,5 +58,6 @@ export default function Modal({ showImmediately }) {
 				</div>
 				, document.getElementById('modal')) }
 		</>
+
 	)
 }

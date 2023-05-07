@@ -5,11 +5,13 @@ import useLocation from './hooks/useLocation'
 import { PrecipContext, precipDefaultValue } from "./context/precipContext";
 import { WeatherContext } from './context/weatherContext'
 
+
 import Modal from "./UI/Modal";
 import Today from "./components/Today";
 import Mainlayout from "./UI/MainLayout";
 import DaysList from "./components/DaysList";
 import { SocialMediaContext, SocialMediaDefaultValue } from "./context/socialMediaContext";
+
 
 function App() {
   const { geoData, weather, currentWeather, setCurrentWeather, isLoading, fetch_weather, fetchedFromCurrentLocation, showModal, setShowModal } = useWeather()
@@ -54,7 +56,7 @@ function App() {
             { weather && <DaysList /> }
             { weather && <Today /> }
           </Mainlayout>
-
+          
         </SocialMediaContext.Provider>
       </PrecipContext.Provider>
     </WeatherContext.Provider>

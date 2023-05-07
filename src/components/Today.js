@@ -61,6 +61,7 @@ export default function Today() {
 						</div>
 						<div>
 							<p><img className={ classes.weatherIcon } src={ rain } alt='rain' /> { weather.precipprob }%</p>
+
 							<div>{ precipitates }</div>
 						</div>
 						<div>

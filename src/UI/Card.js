@@ -5,6 +5,7 @@ import { WeatherContext } from '../context/weatherContext'
 export default function Card({ day }) {
 	const { currentWeather, setCurrentWeather } = useContext(WeatherContext)
 
+
 	const date = new Date(day.datetime)
 
 	// Different styling for days during weekend

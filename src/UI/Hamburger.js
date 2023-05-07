@@ -18,5 +18,6 @@ export default function Hamburger({ isActive, setIsActive }) {
 				</span>
 			</button>
 		</>
+
 	)
 }

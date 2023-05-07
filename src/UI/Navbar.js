@@ -18,6 +18,7 @@ export default function Navbar() {
 	const { github, linkedin } = useContext(SocialMediaContext)
 	const [hamIsActive, setHamIsActive] = useState(null)
 
+
 	const handleClick = () => {
 		getLocation()
 		fetch_weather({ location: location })
@@ -58,6 +59,7 @@ export default function Navbar() {
 				</p>
 				<button onClick={ () => { setShowModal(state => !state) } }>
 					<img className={ classes.navIcon } src={ search } alt='Search icon' />
+
 				</button>
 				<div className={ classes.searchCity }
 					onClick={ e => {
