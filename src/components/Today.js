@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { PrecipContext } from '../context/context'
+import { PrecipContext } from '../context/precipContext'
 
 import classes from './Today.module.css'
 
@@ -8,10 +8,10 @@ import cloud from './../media/cloud.svg'
 import rain from './../media/rain.svg'
 
 import Navbar from '../UI/Navbar'
-import { mainWeatherContext } from '../context/mainWeatherContext'
+import { WeatherContext } from '../context/weatherContext'
 
 export default function Today() {
-	const { currentWeather: weather } = useContext(mainWeatherContext)
+	const { currentWeather: weather } = useContext(WeatherContext)
 	const precipCtx = useContext(PrecipContext)
 
 	// Current weather doesn't have a proper date property, so the date is set to current date, otherwise date is gotten from weather object
@@ -28,7 +28,7 @@ export default function Today() {
 
 	// This render icons for forecasted precipitations, if there are any
 	const precipitates = weather.preciptype?.map(precip =>
-		<img key={ Math.random() } className={ classes.weatherIcon } src={ precipCtx[precip] } />)
+		<img key={ Math.random() } className={ classes.weatherIcon } src={ precipCtx[precip] } alt='' />)
 
 	return (
 		<div className={ classes.todayContainer }>
@@ -57,15 +57,16 @@ export default function Today() {
 					<div>
 						<div>
 							<p>
-								<img className={ classes.weatherIcon } src={ cloud } /> { weather.cloudcover }%</p>
+								<img className={ classes.weatherIcon } src={ cloud } alt='cloud' /> { weather.cloudcover }%</p>
 						</div>
 						<div>
-							<p><img className={ classes.weatherIcon } src={ rain } /> { weather.precipprob }%</p>
+							<p><img className={ classes.weatherIcon } src={ rain } alt='rain' /> { weather.precipprob }%</p>
+
 							<div>{ precipitates }</div>
 						</div>
 						<div>
 							<p>
-								<img className={ classes.weatherIcon } src={ wind } />
+								<img className={ classes.weatherIcon } src={ wind } alt='wind' />
 								{ weather.windspeed } km/h</p>
 						</div>
 					</div>

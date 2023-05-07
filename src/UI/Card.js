@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import classes from './Card.module.css'
-import { mainWeatherContext } from '../context/mainWeatherContext'
+import { WeatherContext } from '../context/weatherContext'
 
 export default function Card({ day }) {
-	const { currentWeather, setCurrentWeather } = useContext(mainWeatherContext)
+	const { currentWeather, setCurrentWeather } = useContext(WeatherContext)
+
 
 	const date = new Date(day.datetime)
 

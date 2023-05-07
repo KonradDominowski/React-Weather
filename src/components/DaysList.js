@@ -3,11 +3,11 @@ import React, { useContext } from 'react'
 import classes from './DaysList.module.css'
 
 import Card from './../UI/Card'
-import { mainWeatherContext } from '../context/mainWeatherContext'
+import { WeatherContext } from '../context/weatherContext'
 
 
 export default function DaysList() {
-	const days = useContext(mainWeatherContext).weather.days
+	const days = useContext(WeatherContext).weather.days
 
 	const daysList = days.map((day, i) => <Card key={ i } day={ day } />)
 

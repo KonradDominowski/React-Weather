@@ -1,7 +1,7 @@
 .sk-chase {
   display: inline-block;
-  width: 2.3em;
-  height: 2.3em;
+  width: 2.2em;
+  height: 2.2em;
   position: relative;
   animation: sk-chase 2.5s infinite linear both;
 }

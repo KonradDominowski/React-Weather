@@ -12,7 +12,7 @@ nav p {
   margin-bottom: 0;
 }
 
-.navButton {
+nav button {
   text-align: center;
   margin: 0.5rem;
   cursor: pointer;
@@ -21,19 +21,20 @@ nav p {
   border: 0.5px solid rgba(0, 0, 0, 0.05);
   border-radius: 50%;
   padding: 0.2rem;
-  background: hwb(0 100% 15%);
+  background: rgba(255, 255, 255, 0.493);
 }
 
-.navButton:hover {
+nav button:hover {
+  scale: 1.02;
+  background: rgba(255, 255, 255, 0.692);
   box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.5);
-  background: hwb(0 100% 17%);
 }
 
-.navButton:active {
-  scale: 0.95;
+nav button:active {
+  scale: 0.98;
 }
 
-.navIcon {
+nav img {
   height: 2.3em;
 }
 
@@ -41,4 +42,19 @@ nav p {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.hamburgerContainer {
+  position: relative;
+  display: flex;
+}
+
+.contactInfo {
+  transform: translateX(5rem);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
 }

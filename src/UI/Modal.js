@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useMemo, useCallback, useContext } from 'react'
+import ReactDOM from 'react-dom'
 import classes from './Modal.module.css'
-import Spinner from './Spinner'
-import InputCity from './InputCity'
-import { mainWeatherContext } from '../context/mainWeatherContext'
+import Spinner2 from './Spinner2'
+import InputCity from './../components/InputCity'
+import { WeatherContext } from '../context/weatherContext'
 
-export default function Modal({ show }) {
-	const { location, getLocation, fetch_weather, isLoading } = useContext(mainWeatherContext)
+export default function Modal({ showImmediately }) {
+	const { location, getLocation, weather, isLoading } = useContext(WeatherContext)
 	const [prompt, setPrompt] = useState(null)
 	const [message, setMessage] = useState(null)
-	const [showPrompt, setShowPrompt] = useState(show)
+	const [showPrompt, setShowPrompt] = useState(showImmediately)
+
 
 	// Click this button to try and get location again, in case the user turned it on.
 	const handleClick = useCallback(() => {
@@ -21,7 +23,7 @@ export default function Modal({ show }) {
 	const fallback = useMemo(() => {
 		return <>
 			<div className={ `${classes.prompt}` }>
-				{ !show &&
+				{ !showImmediately &&
 					<>
 						<h2>
 							Make sure to enable location in the browser
@@ -35,7 +37,7 @@ export default function Modal({ show }) {
 				<InputCity />
 			</div>
 		</>
-	}, [message, show, fetch_weather, handleClick])
+	}, [message, showImmediately, handleClick])
 
 	useEffect(() => {
 		setPrompt(fallback)
@@ -48,9 +50,14 @@ export default function Modal({ show }) {
 	}, [])
 
 	return (
-		<div className={ classes.backdrop }>
-			{/* { isLoading && <Spinner /> } */ }
-			{ showPrompt && prompt }
-		</div>
+		<>
+			{ ReactDOM.createPortal(
+				<div className={ classes.backdrop }>
+					{ isLoading && !weather && <Spinner2 /> }
+					{ showPrompt && prompt }
+				</div>
+				, document.getElementById('modal')) }
+		</>
+
 	)
 }
