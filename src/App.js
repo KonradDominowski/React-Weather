@@ -56,7 +56,7 @@ function App() {
             { weather && <DaysList /> }
             { weather && <Today /> }
           </Mainlayout>
-          
+
         </SocialMediaContext.Provider>
       </PrecipContext.Provider>
     </WeatherContext.Provider>

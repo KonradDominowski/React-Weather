@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
+const WEATHER_API_KEY = `ZAUSD52QXZXGG7VTYENTNT9D6`
+const GEOCODING_API_KEY = `3540478de5844d23ac0ae2a428369495`
 
 export default function useWeather() {
-	const WEATHER_API_KEY = `ZAUSD52QXZXGG7VTYENTNT9D6`
-	const GEOCODING_API_KEY = `3540478de5844d23ac0ae2a428369495`
 	const [weather, setWeather] = useState(null)
 	const [currentWeather, setCurrentWeather] = useState()
 	const [geoData, setGeoData] = useState(null)
@@ -15,10 +15,6 @@ export default function useWeather() {
 		async ({ location = null, city = null, country = null }) => {
 			let weatherUrl
 			let geoDataUrl
-
-			console.log('location:', location)
-			console.log('city:', city)
-			console.log('country:', country)
 
 			if (location) {
 				weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/
@@ -82,7 +78,6 @@ export default function useWeather() {
 		setCurrentWeather,
 		showModal,
 		setShowModal,
-		location,
 		err,
 		fetchedFromCurrentLocation
 	}
