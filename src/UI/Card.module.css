@@ -95,12 +95,7 @@
 }
 
 .rain {
-  background: linear-gradient(
-    45deg,
-    hwb(180 85% 30%) 0%,
-    hwb(197 39% 40%) 35%,
-    hwb(200 0% 60%) 90%
-  );
+  background: linear-gradient(45deg, #bcbcbc 0%, #638a99 35%, #004466 90%);
 }
 
 .fog {
@@ -124,5 +119,5 @@
 }
 
 .clear-day {
-  background: linear-gradient(45deg, hwb(180 61% 15%), hwb(197 40% 0%));
+  background: linear-gradient(45deg, hwb(180 61% 15%), #66d4ff);
 }
