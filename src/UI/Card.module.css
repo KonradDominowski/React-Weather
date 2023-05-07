@@ -1,0 +1,129 @@
+.card {
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  display: grid;
+  grid-template-columns: 25% 45% 30%;
+  margin: 1rem 1.5rem 1rem 1.5rem;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.301);
+  transition: 100ms ease-in;
+}
+
+.card:hover {
+  scale: 1.05;
+  box-shadow: 0 0 3px 0px;
+  border: 1px solid black;
+}
+
+.card:active {
+  scale: 1.05;
+  border: 1px solid black;
+  box-shadow: 0 0 3px 0px;
+}
+
+.active {
+  scale: 1.05;
+  border: 1px solid black;
+  box-shadow: 0 0 3px 0px;
+  pointer-events: none;
+}
+
+.card > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  font-weight: 400;
+  padding: 0 1rem 0.5rem 1rem;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.date > div {
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+}
+
+.date > div > span {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.temp {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.weekend {
+  background: #ff416c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff416c,
+    #ff4b2b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff416c,
+    #ff4b2b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.weekday {
+  background: beige;
+}
+
+.date p {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+.snow {
+}
+
+.rain {
+  /* background: linear-gradient(45deg, hwb(210 1% 15%), hwb(230 0% 15%)); */
+  background-image: linear-gradient(
+    45deg,
+    hwb(180 85% 30%) 0%,
+    hwb(197 39% 40%) 35%,
+    hwb(200 0% 60%) 90%
+  );
+}
+
+.fog {
+}
+
+.wind {
+}
+
+.cloudy {
+  background-image: linear-gradient(
+    45deg,
+    #d8eeee 0%,
+    #64adc9 35%,
+    #005986 90%,
+    #005986
+  );
+}
+
+.partly-cloudy-day {
+  background: linear-gradient(45deg, hwb(197 76% 2%), hwb(210 79% 40%));
+}
+
+.clear-day {
+  background: linear-gradient(45deg, hwb(180 61% 15%), hwb(197 40% 0%));
+}

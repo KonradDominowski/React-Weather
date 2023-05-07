@@ -1,0 +1,44 @@
+nav {
+  font-size: 2.5rem;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+nav p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.navButton {
+  text-align: center;
+  margin: 0.5rem;
+  cursor: pointer;
+  height: 4rem;
+  width: 4rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  padding: 0.2rem;
+  background: hwb(0 100% 15%);
+}
+
+.navButton:hover {
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.5);
+  background: hwb(0 100% 17%);
+}
+
+.navButton:active {
+  scale: 0.95;
+}
+
+.navIcon {
+  height: 2.3em;
+}
+
+.searchCity {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
