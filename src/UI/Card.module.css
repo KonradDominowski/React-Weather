@@ -96,7 +96,7 @@
 
 .rain {
   /* background: linear-gradient(45deg, hwb(210 1% 15%), hwb(230 0% 15%)); */
-  background-image: linear-gradient(
+  background: linear-gradient(
     45deg,
     hwb(180 85% 30%) 0%,
     hwb(197 39% 40%) 35%,
@@ -111,7 +111,7 @@
 }
 
 .cloudy {
-  background-image: linear-gradient(
+  background: linear-gradient(
     45deg,
     #d8eeee 0%,
     #64adc9 35%,

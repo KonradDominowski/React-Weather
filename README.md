@@ -6,6 +6,8 @@ This is a weather application made with React, it gets your location from the br
 
 [Live Demo Coming Soon]()
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d15b264a-06a1-4af8-bf61-f73dee15194b/deploy-status)](https://app.netlify.com/sites/velvety-halva-02ef12/deploys)
+
 ## Check out locally
 
 Clone the repo and run:
