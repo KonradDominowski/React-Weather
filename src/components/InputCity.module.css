@@ -1,0 +1,54 @@
+.cityForm {
+  display: grid;
+}
+
+.cityForm input {
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.952);
+  box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
+}
+
+.cities {
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.noCities {
+  border-radius: 0.75rem;
+}
+
+.cityForm > input:focus {
+  outline: none;
+}
+.cityForm > input::placeholder {
+  text-align: center;
+}
+
+.cityForm > button {
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 0 0.7rem;
+  border: none;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
+}
+
+.last {
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.cityForm > button > img {
+  margin-right: 0.5rem;
+}
+
+.cityForm > button:hover {
+  background-color: rgb(255, 208, 208);
+  scale: 1.07;
+  transition: 0.2s;
+}
