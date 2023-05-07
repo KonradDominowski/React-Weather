@@ -95,7 +95,6 @@
 }
 
 .rain {
-  /* background: linear-gradient(45deg, hwb(210 1% 15%), hwb(230 0% 15%)); */
   background: linear-gradient(
     45deg,
     hwb(180 85% 30%) 0%,

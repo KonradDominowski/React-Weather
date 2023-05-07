@@ -4,7 +4,7 @@
 
 This is a weather application made with React, it gets your location from the browser and displays current weather. You can change the city you want to get location for.
 
-[Live Demo Coming Soon]()
+[Live Demo](https://reactweatherkonrad.netlify.app/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d15b264a-06a1-4af8-bf61-f73dee15194b/deploy-status)](https://app.netlify.com/sites/velvety-halva-02ef12/deploys)
 
