@@ -1,12 +1,14 @@
 .todayContainer {
-  width: 65vw;
-  display: grid;
-  grid-template-rows: minmax(1rem, 15%) 1fr;
-  height: 100vh;
-  position: fixed;
+  /* position: fixed;
   top: 0;
   right: 0;
-  padding: 0 1rem 1rem 1rem;
+  width: 65vw; */
+  height: 100vh;
+  display: grid;
+  grid-template-rows: minmax(1rem, 15%) 1fr;
+  /* padding: 0 1rem 1rem 1rem; */
+  padding-right: 1rem;
+  padding-top: 0.5rem;
 }
 
 .weatherIcon {

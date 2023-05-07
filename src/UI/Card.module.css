@@ -7,20 +7,16 @@
   margin: 1rem 1.5rem 1rem 1.5rem;
   padding: 0.5rem;
   border-radius: 1.5rem;
+  border: 1px solid transparent;
   box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.301);
-  transition: 100ms ease-in;
+  transition: 50ms ease-in;
 }
 
-.card:hover {
-  scale: 1.05;
-  box-shadow: 0 0 3px 0px;
-  border: 1px solid black;
-}
-
+.card:hover,
 .card:active {
   scale: 1.05;
-  border: 1px solid black;
   box-shadow: 0 0 3px 0px;
+  border: 1px solid black;
 }
 
 .active {
@@ -92,6 +88,8 @@
 }
 
 .snow {
+  /* background: linear-gradient(45deg, hwb(0 98% 4%), hwb(0 92% 0%)); */
+  background: linear-gradient(45deg, rgba(178, 178, 178, 0.3), white 70%);
 }
 
 .rain {
