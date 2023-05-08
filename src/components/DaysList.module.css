@@ -1,9 +1,22 @@
 .days {
-  position: fixed;
   height: 100vh;
-  width: 33vw;
-  top: 0;
-  left: 0;
-  overflow: scroll;
+  overflow-y: scroll;
   overflow-x: hidden;
+  transition: 0.5s;
+  direction: rtl;
+}
+
+@media (width < 1201px) {
+  .days {
+    height: calc(100vh - 5.5rem);
+    position: absolute;
+    width: 6rem;
+    top: 5.5rem;
+    left: 0;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
