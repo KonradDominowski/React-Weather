@@ -2,8 +2,7 @@
   height: 100vh;
   display: grid;
   grid-template-rows: minmax(1rem, 15%) 1fr;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 0.5rem;
 }
 
 .weatherIcon {
@@ -77,7 +76,11 @@
   gap: 4rem;
 }
 
-@media (width < 1201px) {
+@media (767px < width < 1201px) {
+  .todayContainer {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
   .weatherInfo {
     padding-left: 4rem;
   }
