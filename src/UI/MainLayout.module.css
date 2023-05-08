@@ -1,6 +1,10 @@
 .layout {
   display: grid;
   grid-template-columns: minmax(400px, 1fr) 3fr;
-  /* max-width: 100vw; */
-  /* display: flex; */
+}
+
+@media (width < 1201px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
 }

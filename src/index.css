@@ -1,20 +1,20 @@
-html {
-  font-family: "Kalam", cursive;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 100;
+:root {
+  font-size: 18px;
 }
 
 body {
-  overflow: hidden;
+  font-family: "Kalam", cursive;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
   background: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);
-  font-size: 18px;
   margin: 0;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 1rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,12 +22,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #7a786a;
+  background-color: #7a786a8a;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #a8bbbf;
+  background-color: #7a786ada;
+}
+
+@media (width < 1201px) {
+  :root {
+    font-size: 16px;
+  }
 }

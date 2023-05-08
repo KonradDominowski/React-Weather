@@ -1,28 +1,28 @@
 .card {
+  direction: ltr;
   cursor: pointer;
   text-align: center;
   vertical-align: middle;
   display: grid;
   grid-template-columns: 25% 45% 30%;
-  margin: 1rem 1.5rem 1rem 1.5rem;
+  max-width: 90%;
+  max-height: 130px;
+  margin: 0.75rem 1.5rem 0.75rem 0.75rem;
   padding: 0.5rem;
   border-radius: 1.5rem;
-  border: 1px solid transparent;
   box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.301);
-  transition: 50ms ease-in;
+  transition: all 250ms, scale 50ms ease-in-out, box-shadow 50ms ease-in-out;
+  opacity: 1;
 }
 
 .card:hover,
-.card:active {
+.card:active,
+.active {
   scale: 1.05;
-  box-shadow: 0 0 3px 0px;
-  border: 1px solid black;
+  box-shadow: 0 0 3px 0px, inset 0 0 0 1px black;
 }
 
 .active {
-  scale: 1.05;
-  border: 1px solid black;
-  box-shadow: 0 0 3px 0px;
   pointer-events: none;
 }
 
@@ -59,9 +59,19 @@
   font-weight: 600;
 }
 
+.date p {
+  text-align: center;
+  margin: 0.2rem 0.5rem 0.2rem 0.5rem;
+}
+
 .temp {
   font-size: 1.8rem;
   font-weight: 400;
+}
+
+.temp p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .weekend {
@@ -82,13 +92,7 @@
   background: beige;
 }
 
-.date p {
-  text-align: center;
-  margin: 0.5rem;
-}
-
 .snow {
-  /* background: linear-gradient(45deg, hwb(0 98% 4%), hwb(0 92% 0%)); */
   background: linear-gradient(45deg, rgba(178, 178, 178, 0.3), white 70%);
 }
 
@@ -118,4 +122,38 @@
 
 .clear-day {
   background: linear-gradient(45deg, hwb(180 61% 15%), #66d4ff);
+}
+
+@media (width < 1201px) {
+  .card {
+    position: relative;
+    display: block;
+    margin: 0.3rem 0 0.25rem 0;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .card:hover,
+  .card:active,
+  .active {
+    scale: 1.3;
+  }
+
+  .card > div {
+    display: none;
+  }
+
+  .temp {
+    display: block !important;
+  }
+
+  .temp {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .temp > p > span {
+    display: none;
+  }
 }

@@ -32,7 +32,7 @@ export default function Card({ day }) {
 					.join(', ') }</p>
 			</div>
 			<div className={ classes.temp }>
-				<p>{ day.temp } °C</p>
+				<p>{ day.temp } <span>°C</span></p>
 			</div>
 		</div>
 	)

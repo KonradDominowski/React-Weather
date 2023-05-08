@@ -1,14 +1,9 @@
 .todayContainer {
-  /* position: fixed;
-  top: 0;
-  right: 0;
-  width: 65vw; */
   height: 100vh;
   display: grid;
   grid-template-rows: minmax(1rem, 15%) 1fr;
-  /* padding: 0 1rem 1rem 1rem; */
   padding-right: 1rem;
-  padding-top: 0.5rem;
+  padding-left: 1rem;
 }
 
 .weatherIcon {
@@ -80,4 +75,10 @@
 .extraInfo > div {
   display: flex;
   gap: 4rem;
+}
+
+@media (width < 1201px) {
+  .weatherInfo {
+    padding-left: 4rem;
+  }
 }
