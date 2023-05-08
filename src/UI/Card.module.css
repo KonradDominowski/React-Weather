@@ -124,7 +124,7 @@
   background: linear-gradient(45deg, hwb(180 61% 15%), #66d4ff);
 }
 
-@media (width < 1201px) {
+@media (767px < width < 1201px) {
   .card {
     position: relative;
     display: block;
