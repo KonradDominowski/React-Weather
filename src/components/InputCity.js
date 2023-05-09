@@ -27,7 +27,7 @@ export default function InputCity() {
 				return
 			}
 			setCitiesList(
-				<button className={ classes.last }>
+				<button>
 					<Spinner2 />
 				</button>
 			)
@@ -53,7 +53,6 @@ export default function InputCity() {
 
 		setCitiesList(fetchedCities.map((city, i) => {
 			return <button
-				className={ (i + 1 === fetchedCities.length) ? classes.last : '' }
 				key={ i }
 				type='button'
 				onClick={ fetchCityWeather.bind(null, { index: i, city: { city: city.name, country: city.country } }) }>

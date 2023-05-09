@@ -1,24 +1,21 @@
 .backdrop {
-  background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(10px);
-  transition: 1s;
+  transition: 0.15s;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  position: absolute;
   z-index: 20;
 }
 
 .prompt {
   background-color: white;
   text-align: center;
-  width: max-content;
-  margin: 3rem;
+  max-height: 80%;
+  max-width: 50%;
+  margin: auto;
   padding: 3rem;
   border: 0px solid black;
   border-radius: 2rem;
@@ -35,6 +32,7 @@
   border-radius: 0.75rem;
   padding: 1.5rem 2.5rem 1.5rem 2.5rem;
   background-color: rgba(255, 255, 255, 0.952);
+  border: 1px solid rgba(0, 69, 160, 0.479);
   box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
 }
 
@@ -58,4 +56,7 @@
 
 .hidden {
   display: none;
+}
+
+@media (767px < width < 1201px) {
 }
