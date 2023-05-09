@@ -24,6 +24,8 @@ export default function Navbar() {
 		fetch_weather({ location: location })
 	}
 
+	console.log(geoData)
+
 	return (
 		<>
 			<nav>
@@ -55,7 +57,7 @@ export default function Navbar() {
 						}
 
 					</button>
-					{ `${geoData?.city}, ${geoData?.country}` }
+					{ `${geoData?.city}, ${geoData?.country_code.toUpperCase()}` }
 				</p>
 				<button onClick={ () => { setShowModal(state => !state) } }>
 					<img className={ classes.navIcon } src={ search } alt='Search icon' />

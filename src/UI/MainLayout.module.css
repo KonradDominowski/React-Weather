@@ -8,3 +8,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (width < 767px) {
+  .layout {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

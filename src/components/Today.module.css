@@ -85,3 +85,9 @@
     padding-left: 4rem;
   }
 }
+
+@media (width < 767px) {
+  .todayContainer {
+    height: 70vh;
+  }
+}

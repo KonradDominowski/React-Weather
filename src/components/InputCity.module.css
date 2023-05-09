@@ -1,19 +1,28 @@
 .cityForm {
   display: grid;
+  max-height: 20rem;
+  overflow-x: hidden;
+  overflow-y: overlay;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 69, 160, 0.479);
 }
 
 .cityForm input {
   font-family: "Montserrat", sans-serif;
-  padding: 1rem;
+  position: sticky;
+  top: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 1.2rem;
   text-align: center;
   border: none;
-  background-color: rgba(255, 255, 255, 0.952);
-  box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
+  background-color: rgb(245, 245, 245);
+  box-shadow: 0 -10px 0px 0px white;
 }
 
 .cities {
   border-radius: 0.75rem 0.75rem 0 0;
+  border-bottom: 2px solid rgba(0, 69, 160, 0.479) !important;
 }
 
 .noCities {
@@ -34,13 +43,10 @@
   align-items: center;
   justify-content: center;
   padding: 0.7rem 0 0.7rem;
-  border: none;
   background: rgb(255, 255, 255);
+  border: none;
+  border-top: 1px solid rgba(0, 69, 160, 0.479);
   box-shadow: 0 0 2px 0px rgba(0, 69, 160, 0.801);
-}
-
-.last {
-  border-radius: 0 0 0.75rem 0.75rem;
 }
 
 .cityForm > button > img {
@@ -51,4 +57,18 @@
   background-color: rgb(255, 208, 208);
   scale: 1.07;
   transition: 0.2s;
+}
+
+@media (width < 767px) {
+  .cityForm {
+    max-height: 30rem;
+  }
+
+  .cityForm input {
+    width: 100%;
+  }
+
+  .cityForm button {
+    font-size: 1rem;
+  }
 }

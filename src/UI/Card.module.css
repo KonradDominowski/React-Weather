@@ -157,3 +157,16 @@
     display: none;
   }
 }
+
+@media (width < 767px) {
+  .card {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    max-width: 6rem;
+  }
+
+  .description {
+    display: none !important;
+  }
+}

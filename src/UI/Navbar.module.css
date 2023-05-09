@@ -49,13 +49,16 @@ nav img {
 }
 
 .contactInfo {
-  transform: translateX(4rem);
+  border-radius: 3rem;
+  background: #aff1da;
+  box-shadow: 0 0 7px -3px black;
+  padding: 0 0.75rem 0 0.75rem;
+  transform: translateX(4.5rem);
   display: flex;
   align-items: center;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 100%;
+  left: -0.2rem;
 }
 
 @media (767px < width < 1201px) {
@@ -71,6 +74,16 @@ nav img {
   }
 
   .contactInfo {
-    transform: translateX(4rem);
+    transform: translateX(4.5rem);
+  }
+}
+
+@media (width < 767px) {
+  .contactInfo {
+    padding: 0;
+    left: 0;
+    flex-direction: column;
+    transform: translateX(0);
+    transform: translateY(4.5rem);
   }
 }
