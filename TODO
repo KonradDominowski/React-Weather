@@ -1,6 +1,6 @@
 3. Zaprojektować fajny interfejs
 8. Przy zmianie dnia, cała lista się renderuje, lepiej ogarnąć coś żeby nie musiała się cała zmieniać, tylko odpowiednie elementy
 
-
+Spinner keeps spinning if no citites found
 
 Zakończyłem na tym że próbowałem usunąć listę miast z wyszukiwarki gdy usuwasz wprowadzone literki

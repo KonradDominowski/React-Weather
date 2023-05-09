@@ -1,7 +1,8 @@
 .cityForm {
   display: grid;
   max-height: 20rem;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: overlay;
   border-radius: 0.75rem;
   border: 1px solid rgba(0, 69, 160, 0.479);
 }
@@ -10,7 +11,8 @@
   font-family: "Montserrat", sans-serif;
   position: sticky;
   top: 0;
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   font-size: 1.2rem;
   text-align: center;
   border: none;
@@ -55,4 +57,18 @@
   background-color: rgb(255, 208, 208);
   scale: 1.07;
   transition: 0.2s;
+}
+
+@media (width < 767px) {
+  .cityForm {
+    max-height: 30rem;
+  }
+
+  .cityForm input {
+    width: 100%;
+  }
+
+  .cityForm button {
+    font-size: 1rem;
+  }
 }

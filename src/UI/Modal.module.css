@@ -2,6 +2,7 @@
   backdrop-filter: blur(10px);
   transition: 0.15s;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
