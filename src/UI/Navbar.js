@@ -26,6 +26,7 @@ export default function Navbar() {
 
 	console.log(geoData)
 
+	let contactInfoClasses = hamIsActive ? classes.contactInfo : `${classes.contactInfo} + ${classes.hidden}`
 	return (
 		<>
 			<nav>
@@ -33,12 +34,12 @@ export default function Navbar() {
 					<Hamburger
 						isActive={ hamIsActive }
 						setIsActive={ setHamIsActive } />
-					{ hamIsActive && <div className={ classes.contactInfo }>
+					<div className={ contactInfoClasses }>
 						<SocialMediaButton
 							socialMedia={ github } />
 						<SocialMediaButton
 							socialMedia={ linkedin } />
-					</div> }
+					</div>
 				</div>
 				<p>
 					<button

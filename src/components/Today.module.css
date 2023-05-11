@@ -39,15 +39,14 @@
 .headerDate {
   font-size: 2rem;
   line-height: 2rem;
-  font-weight: 300;
 }
 
 .temp {
   margin-left: 0.5rem;
   display: inline-block;
   font-size: 5.5rem;
-  font-weight: 300;
   line-height: 5rem;
+  font-weight: 500;
 }
 
 .subtext {
@@ -62,13 +61,11 @@
 
 .conditions {
   font-size: 3.5rem;
-  font-weight: 200;
 }
 
 .weatherInfo p {
   text-align: center;
   margin: 0.5rem 0 0.5rem 0;
-  font-weight: 300;
 }
 
 .extraInfo > div {

@@ -4,7 +4,7 @@
   text-align: center;
   vertical-align: middle;
   display: grid;
-  grid-template-columns: 25% 45% 30%;
+  grid-template-columns: 40% 60%;
   max-width: 90%;
   max-height: 130px;
   margin: 0.75rem 1.5rem 0.75rem 0.75rem;
@@ -26,26 +26,35 @@
   pointer-events: none;
 }
 
-.card > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.description {
-  font-weight: 400;
+.descriptionContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.precipAndTemp {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.precipAndTemp img {
+  height: 1.5rem;
+  vertical-align: bottom;
+}
+
+.precipitates {
+  display: flex;
+  gap: 0.5rem;
 }
 
 .date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-weight: 400;
   padding: 0 1rem 0.5rem 1rem;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .date > div {
@@ -65,13 +74,15 @@
 }
 
 .temp {
-  font-size: 1.8rem;
+  margin-top: 0.4rem;
+  margin-right: 0.4rem;
+  font-size: 2.1rem;
   font-weight: 400;
 }
 
 .temp p {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .weekend {
@@ -127,9 +138,12 @@
 @media (767px < width < 1201px) {
   .card {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0.3rem 0 0.25rem 0;
-    width: 2em;
+    min-height: 2rem;
+    width: 2rem;
     height: 2rem;
   }
 
@@ -139,17 +153,28 @@
     scale: 1.3;
   }
 
-  .card > div {
+  .card div {
     display: none;
+  }
+
+  .descriptionContainer {
+    display: block !important;
+  }
+
+  .precipAndTemp {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .precipitates {
+    display: none !important;
   }
 
   .temp {
     display: block !important;
-  }
-
-  .temp {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 
@@ -160,13 +185,31 @@
 
 @media (width < 767px) {
   .card {
+    padding: 1rem 0 1rem 0;
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-around;
+    justify-content: space-between;
     max-width: 6rem;
+    gap: 0.5rem;
   }
 
   .description {
     display: none !important;
+  }
+
+  .precipAndTemp {
+    display: block;
+  }
+
+  .precipitates {
+    display: none;
+  }
+
+  .temp {
+    margin: 0;
+  }
+
+  .temp > p > span {
+    display: none;
   }
 }

@@ -29,7 +29,13 @@ export default function Modal({ showImmediately }) {
 							Make sure to enable location in the browser
 						</h2>
 						<div className={ classes.input }>
-							<button onClick={ handleClick }>Try again</button>
+							<button onClick={ handleClick }>
+								{ isLoading
+									? <Spinner2 />
+									: 'Try again' }
+
+							</button>
+
 						</div>
 					</>
 				}
@@ -53,7 +59,7 @@ export default function Modal({ showImmediately }) {
 		<>
 			{ ReactDOM.createPortal(
 				<div className={ classes.backdrop }>
-					{ isLoading && !weather && <Spinner2 /> }
+					{/* { isLoading && !weather && <Spinner2 /> } */ }
 					{ showPrompt && prompt }
 				</div>
 				, document.getElementById('modal')) }

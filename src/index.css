@@ -5,7 +5,7 @@
 body {
   font-family: "Kalam", cursive;
   font-family: "Montserrat", sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   background: linear-gradient(315deg, #f9ea8f 0%, #aff1da 74%);
   margin: 0;
   overflow: hidden;
@@ -40,6 +40,6 @@ body {
 
 @media (width < 767px) {
   :root {
-    font-size: 8px;
+    font-size: 14px;
   }
 }
