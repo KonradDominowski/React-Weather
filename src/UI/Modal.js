@@ -6,7 +6,7 @@ import InputCity from './../components/InputCity'
 import { WeatherContext } from '../context/weatherContext'
 
 export default function Modal({ showImmediately }) {
-	const { location, getLocation, weather, isLoading } = useContext(WeatherContext)
+	const { location, getLocation, isLoading } = useContext(WeatherContext)
 	const [prompt, setPrompt] = useState(null)
 	const [message, setMessage] = useState(null)
 	const [showPrompt, setShowPrompt] = useState(showImmediately)
@@ -43,7 +43,7 @@ export default function Modal({ showImmediately }) {
 				<InputCity />
 			</div>
 		</>
-	}, [message, showImmediately, handleClick])
+	}, [message, isLoading, showImmediately, handleClick])
 
 	useEffect(() => {
 		setPrompt(fallback)
