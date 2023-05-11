@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import classes from './Card.module.css'
 import { WeatherContext } from '../context/weatherContext'
+import { PrecipContext } from '../context/precipContext'
 
 export default function Card({ day }) {
 	const { currentWeather, setCurrentWeather } = useContext(WeatherContext)
+	const precipCtx = useContext(PrecipContext)
 
 	const date = new Date(day.datetime)
 
@@ -17,6 +19,9 @@ export default function Card({ day }) {
 			? `${classes.card} ${classes[day.icon]} ${classes.active}`
 			: `${classes.card} ${classes[day.icon]}`
 
+	const precipitates = day.preciptype?.map(precip =>
+		<img key={ Math.random() } className={ classes.weatherIcon } src={ precipCtx[precip] } alt='' />)
+
 	return (
 		<div className={ cardClasses } onClick={ setCurrentWeather.bind(null, day) }>
 			<div className={ classes.date } >
@@ -26,13 +31,14 @@ export default function Card({ day }) {
 					<p>{ date.toLocaleString('default', { month: 'long' }) }</p>
 				</div>
 			</div>
-			<div className={ classes.description }>
-				<p className={ classes.conditions }>{ day.conditions }</p>
-				<p>{ day.preciptype?.map(el => el.slice(0, 1).toUpperCase() + el.slice(1))
-					.join(', ') }</p>
-			</div>
-			<div className={ classes.temp }>
-				<p>{ day.temp } <span>°C</span></p>
+			<div className={ classes.descriptionContainer }>
+				<div className={ classes.precipAndTemp }>
+					<div className={ classes.precipitates }>
+						{ precipitates }
+					</div>
+					<div className={ classes.temp }><p>{ day.temp } <span>°C</span></p></div>
+				</div>
+				<div className={ classes.description }><p className={ classes.conditions }>{ day.conditions }</p></div>
 			</div>
 		</div>
 	)
