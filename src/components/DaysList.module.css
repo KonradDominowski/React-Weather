@@ -23,6 +23,7 @@
 
 @media (width < 767px) {
   .days {
+    max-height: 30vh;
     direction: ltr;
     display: flex;
     overflow-x: scroll;

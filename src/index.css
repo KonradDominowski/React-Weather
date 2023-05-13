@@ -41,5 +41,12 @@ body {
 @media (width < 767px) {
   :root {
     font-size: 14px;
+    height: 100vh;
+  }
+}
+
+@media (width < 360px) {
+  :root {
+    font-size: 12px;
   }
 }

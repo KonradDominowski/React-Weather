@@ -1,5 +1,5 @@
 nav {
-  font-size: 2.5rem;
+  font-size: 1.7rem;
   font-weight: 400;
   display: flex;
   justify-content: space-between;
@@ -16,8 +16,8 @@ nav button {
   text-align: center;
   margin: 0.5rem 0.25rem 0.5rem 0.25rem;
   cursor: pointer;
-  height: 3.5rem;
-  width: 3.5rem;
+  height: 3rem;
+  width: 3rem;
   border: 0.5px solid rgba(0, 0, 0, 0.05);
   border-radius: 50%;
   padding: 0.2rem;
