@@ -87,4 +87,36 @@
   .todayContainer {
     height: 70vh;
   }
+
+  .weatherInfo {
+    margin-top: 4rem;
+    height: 60vh;
+  }
+
+  .headerInfo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .headerDate {
+    display: none;
+  }
+
+  .subtext {
+    display: none;
+  }
+}
+
+@media (width < 360px) {
+  .weatherInfo {
+    margin-top: 0.5rem;
+    height: 55vh;
+  }
+
+  .conditions {
+    font-size: 3rem;
+  }
 }
