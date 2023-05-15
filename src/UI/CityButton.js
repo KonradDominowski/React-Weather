@@ -7,7 +7,6 @@ import { WeatherContext } from '../context/weatherContext';
 
 
 export default function CityButton({ city, index, fetchCityWeather, isDuplicate, indexToFetch }) {
-
 	const { isLoading } = useContext(WeatherContext)
 
 	return (
