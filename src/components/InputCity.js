@@ -1,9 +1,9 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { CircleFlag } from 'react-circle-flags';
 import useCity from '../hooks/useCity';
 import classes from './InputCity.module.css'
 import { WeatherContext } from '../context/weatherContext';
 import Spinner2 from '../UI/Spinner2'
+import CityButton from '../UI/CityButton';
 
 
 export default function InputCity() {
@@ -18,6 +18,8 @@ export default function InputCity() {
 		setCitiesList,
 	} = useCity()
 
+	console.log(fetchedCities)
+	const duplicates = fetchedCities?.map(city => city.name + city.country_code)
 
 	// Fetch cities list whenever user input text into search bar and it's longer than 2 characters.
 	useEffect(() => {
@@ -38,6 +40,7 @@ export default function InputCity() {
 
 	}, [enteredCity, fetchCities, setCitiesList])
 
+
 	const fetchCityWeather = useCallback((payload) => {
 		setIndexToFetch(payload.index)
 		fetch_weather(payload.city)
@@ -52,23 +55,19 @@ export default function InputCity() {
 		}
 
 		setCitiesList(fetchedCities.map((city, i) => {
-			return <button
-				key={ i }
-				type='button'
-				onClick={ fetchCityWeather.bind(null, { index: i, city: { city: city.name, country: city.country } }) }>
-				{
-					(isLoading && indexToFetch === i)
-						? <Spinner2 />
-						: <>
-							<CircleFlag countryCode={ city.country_code.toLowerCase() } height={ 24 } />
-							{ city.country_code } ,  { city.name }
-						</>
-				}
-			</button>
+			const isDuplicate = duplicates.filter(el => el === city.name + city.country_code).length > 1
+
+			return <CityButton
+				city={ city }
+				index={ i }
+				fetchCityWeather={ fetchCityWeather }
+				isDuplicate={ isDuplicate }
+				indexToFetch={ indexToFetch }
+			/>
 		}
 		))
 
-	}, [fetchedCities, fetch_weather, setCitiesList, isLoading, indexToFetch, fetchCityWeather])
+	}, [fetchedCities, isLoading, indexToFetch, fetch_weather, fetchCityWeather, setCitiesList])
 
 	return (
 		<>

@@ -2,10 +2,12 @@ import React, { useContext } from 'react'
 import classes from './Card.module.css'
 import { WeatherContext } from '../context/weatherContext'
 import { PrecipContext } from '../context/precipContext'
+import { UnitsContext } from '../context/unitsContext'
 
 export default function Card({ day }) {
 	const { currentWeather, setCurrentWeather } = useContext(WeatherContext)
 	const precipCtx = useContext(PrecipContext)
+	const { displayTemp } = useContext(UnitsContext)
 
 	const date = new Date(day.datetime)
 
@@ -36,7 +38,7 @@ export default function Card({ day }) {
 					<div className={ classes.precipitates }>
 						{ precipitates }
 					</div>
-					<div className={ classes.temp }><p>{ day.temp } <span>°C</span></p></div>
+					<div className={ classes.temp }><p>{ displayTemp(day.temp) }</p></div>
 				</div>
 				<div className={ classes.description }><p className={ classes.conditions }>{ day.conditions }</p></div>
 			</div>

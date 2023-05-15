@@ -42,6 +42,7 @@
 }
 
 .temp {
+  position: relative;
   margin-left: 0.5rem;
   display: inline-block;
   font-size: 5.5rem;
