@@ -9,10 +9,16 @@ import rain from './../media/rain.svg'
 
 import Navbar from '../UI/Navbar'
 import { WeatherContext } from '../context/weatherContext'
+import { UnitsContext } from '../context/unitsContext'
 
 export default function Today() {
 	const { currentWeather: weather } = useContext(WeatherContext)
 	const precipCtx = useContext(PrecipContext)
+	const { setMetricUnits, displayTemp, displayWindSpeed } = useContext(UnitsContext)
+
+	const handleUnitsChange = () => {
+		setMetricUnits(state => !state)
+	}
 
 	// Current weather doesn't have a proper date property, so the date is set to current date, otherwise date is gotten from weather object
 	let date = new Date(weather.datetime)
@@ -23,7 +29,8 @@ export default function Today() {
 	// Current weather doesn't have tempmin and tempmax properties, only whole day forecasts have them, so this prevents errors from happening
 	let minMax
 	if (weather.tempmin && weather.tempmax) {
-		minMax = <div className={ classes.minMax }> &#8595; { weather.tempmin } °C &#8593; { weather.tempmax } °C</div>
+		minMax = <div className={ classes.minMax }>
+			&#8595; { displayTemp(weather.tempmin) } &#8593; { displayTemp(weather.tempmax) }</div>
 	}
 
 	// This render icons for forecasted precipitations, if there are any
@@ -44,8 +51,10 @@ export default function Today() {
 							}) }
 						</div>
 						<div>
-							<span className={ classes.subtext }>{ weather.feelslike } °C</span>
-							<div className={ classes.temp }>{ weather.temp } °C</div>
+							<span className={ classes.subtext }>{ displayTemp(weather.feelslike) }</span>
+							<div onClick={ handleUnitsChange } className={ classes.temp }>
+								{ displayTemp(weather.temp) }
+							</div>
 						</div>
 					</div>
 					{ minMax }
@@ -67,7 +76,7 @@ export default function Today() {
 						<div>
 							<p>
 								<img className={ classes.weatherIcon } src={ wind } alt='wind' />
-								{ weather.windspeed } km/h</p>
+								{ displayWindSpeed(weather.windspeed) }</p>
 						</div>
 					</div>
 				</div>

@@ -1,9 +1,16 @@
 Great and simple app but I have some observations.
 
-There is no button for imperial units.
-There is no clear explanation of what all the temperatures and icons mean.
-On the main page where is for example "Rain, Overcast" there is no big icon of the weather (it could be more readable for users )
-When the user enters the name of the town there is no precise explanation in which region, the county is located (there may be several towns with the same name in a given country)
+- There is no button for imperial units.
+
+- There is no clear explanation of what all the temperatures and icons mean.
+- On the main page where is for example "Rain, Overcast" there is no - big icon of the weather (it could be more readable for users )
+
+- Every time current weather is changed, every icon flickers because it reloads
+
+## Done
+
+- When the user enters the name of the town there is no precise explanation in which region, the county is located (there may be several towns with the same name in a given country)
+
 That's all for now
 
 Thank you
