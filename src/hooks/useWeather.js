@@ -43,6 +43,9 @@ export default function useWeather() {
 					fetch(geoDataUrl)
 				])
 
+				console.log(weather)
+				console.log(geo)
+
 				if (!weather.ok) throw new Error(`Couldn't fetch weather`)
 				if (!geo.ok) throw new Error(`Couldn't reverse geocode`)
 

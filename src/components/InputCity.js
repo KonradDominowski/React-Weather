@@ -60,6 +60,7 @@ export default function InputCity() {
 
 			return <CityButton
 				city={ city }
+				key={ i }
 				index={ i }
 				fetchCityWeather={ fetchCityWeather }
 				isDuplicate={ isDuplicate }
