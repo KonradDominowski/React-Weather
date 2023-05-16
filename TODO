@@ -8,6 +8,9 @@ Great and simple app but I have some observations.
 - Every time current weather is changed, every icon flickers because it reloads
 
 - Add user feedback when user click on localize button but location is tirned off
+
+- Add support for landscape mobile layout
+
 ## Done
 
 - When the user enters the name of the town there is no precise explanation in which region, the county is located (there may be several towns with the same name in a given country)
