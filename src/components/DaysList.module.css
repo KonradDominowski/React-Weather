@@ -30,3 +30,21 @@
     overflow-y: hidden;
   }
 }
+
+@media (width < 767px) and (orientation: landscape) {
+  .days {
+    direction: rtl;
+    height: calc(100vh - 5.5rem);
+    max-height: 100%;
+    position: absolute;
+    width: 5rem;
+    top: 5.5rem;
+    left: 0;
+    padding-top: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}

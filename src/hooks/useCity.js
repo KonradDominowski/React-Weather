@@ -23,7 +23,6 @@ export default function useCity() {
 			}
 
 			setCityIsLoading(false)
-
 		}, [])
 
 	return {
@@ -32,6 +31,6 @@ export default function useCity() {
 		fetchCities,
 		citiesList,
 		setCitiesList,
-		err
+		err,
 	}
 }

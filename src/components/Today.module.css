@@ -121,3 +121,38 @@
     font-size: 3rem;
   }
 }
+
+@media (width < 767px) and (orientation: landscape) {
+  .todayContainer {
+    height: 100svh;
+  }
+
+  .weatherInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70svh;
+    margin: 0 3% 0 0;
+    padding-top: 2rem;
+    padding-left: 4rem;
+  }
+
+  .conditions {
+    font-size: 2rem;
+  }
+
+  .headerInfo {
+    flex-direction: row;
+  }
+
+  .temp {
+    font-size: 4rem;
+  }
+
+  .headerDate {
+    padding-left: 1.5rem;
+    display: block;
+  }
+}
+
+@media (width < 767px) and (orientation: landscape);

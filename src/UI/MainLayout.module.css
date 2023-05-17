@@ -15,3 +15,10 @@
     flex-direction: column-reverse;
   }
 }
+
+@media (width < 767px) and (orientation: landscape) {
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

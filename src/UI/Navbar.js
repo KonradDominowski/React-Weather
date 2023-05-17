@@ -7,6 +7,7 @@ import location_pin_off from './../media/location_pin_off.svg'
 import search from './../media/search.svg'
 import fahrenheit from './../media/fahrenheit.svg'
 import celsius from './../media/celsius.svg'
+import close from './../media/close.svg'
 
 import Modal from './Modal'
 import { WeatherContext } from '../context/weatherContext'
@@ -21,14 +22,21 @@ export default function Navbar() {
 	const { github, linkedin } = useContext(SocialMediaContext)
 	const { metricUnits, setMetricUnits } = useContext(UnitsContext)
 	const [hamIsActive, setHamIsActive] = useState(null)
+	const [locationError, setLocationError] = useState(false)
 
+	const contactInfoClasses = hamIsActive ? classes.contactInfo : `${classes.contactInfo} + ${classes.hidden}`
+	const fallbackClasses = locationError ? classes.fallback : `${classes.fallback} ${classes.hidden}`
 
 	const handleClick = () => {
-		getLocation()
-		fetch_weather({ location: location })
+		if (!location) {
+			setLocationError(true)
+			getLocation()
+		} else {
+			setLocationError(false)
+			fetch_weather({ location: location })
+		}
 	}
 
-	let contactInfoClasses = hamIsActive ? classes.contactInfo : `${classes.contactInfo} + ${classes.hidden}`
 	return (
 		<>
 			<nav>
@@ -43,25 +51,30 @@ export default function Navbar() {
 							socialMedia={ linkedin } />
 					</div>
 				</div>
-				<p>
-					<button
-						onClick={ handleClick }>
-						{
-							(isLoading)
-								? <Spinner2 />
-								: <img
-									className={ classes.navIcon }
-									src={
-										fetchedFromCurrentLocation ?
-											location_pin_on :
-											location_pin_off
-									}
-									alt='Location pin' />
-						}
-
-					</button>
-					{ `${geoData?.city}, ${geoData?.country_code.toUpperCase()}` }
-				</p>
+				<div>
+					<p>
+						<button
+							onClick={ handleClick }>
+							{
+								(isLoading)
+									? <Spinner2 />
+									: <img
+										className={ classes.navIcon }
+										src={
+											fetchedFromCurrentLocation ?
+												location_pin_on :
+												location_pin_off
+										}
+										alt='Location pin' />
+							}
+						</button>
+						{ `${geoData?.city}, ${geoData?.country_code.toUpperCase()}` }
+					</p>
+					<div className={ fallbackClasses }>
+						<p>Oops. It looks like the location is turned off.</p>
+						<img src={ close } alt="Close icon" onClick={ () => setLocationError(false) } />
+					</div>
+				</div>
 				<div>
 					{/* <button className={ classes.flipContainer } onClick={ () => { setMetricUnits(state => !state) } } >
 						<div className={ classes.flipper }>

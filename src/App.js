@@ -24,7 +24,8 @@ function App() {
     getLocation()
   }, [getLocation])
 
-  // If the location is enabled, fetch weather for this location.
+  // If the location is enabled, fetch weather for this location. 
+  // Also, whenever location changes, for example after clicking on locate button in the Navbar.
   useEffect(() => {
     if (location) {
       fetch_weather({ location: location })

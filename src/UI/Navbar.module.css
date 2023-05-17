@@ -68,6 +68,37 @@ nav img {
   pointer-events: none;
 }
 
+.fallback {
+  position: absolute;
+  display: flex;
+  grid-template-columns: 5fr 1fr;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.493);
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.301);
+  max-width: 300px;
+  transition: 0.25s ease-out;
+}
+
+.fallback.hidden {
+  transform: translateY(-6rem);
+  opacity: 0;
+}
+
+.fallback p {
+  margin-right: 1rem;
+}
+
+.fallback img {
+  height: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
 @media (767px < width < 1201px) {
   nav button {
     margin-left: 0.25rem;

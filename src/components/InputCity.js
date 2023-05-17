@@ -18,8 +18,7 @@ export default function InputCity() {
 		setCitiesList,
 	} = useCity()
 
-	console.log(fetchedCities)
-	const duplicates = fetchedCities?.map(city => city.name + city.country_code)
+
 
 	// Fetch cities list whenever user input text into search bar and it's longer than 2 characters.
 	useEffect(() => {
@@ -54,11 +53,14 @@ export default function InputCity() {
 			return
 		}
 
+		const duplicates = fetchedCities.map(city => city.name + city.country_code)
+
 		setCitiesList(fetchedCities.map((city, i) => {
-			const isDuplicate = duplicates.filter(el => el === city.name + city.country_code).length > 1
+			const isDuplicate = duplicates?.filter(el => el === city.name + city.country_code).length > 1
 
 			return <CityButton
 				city={ city }
+				key={ i }
 				index={ i }
 				fetchCityWeather={ fetchCityWeather }
 				isDuplicate={ isDuplicate }
